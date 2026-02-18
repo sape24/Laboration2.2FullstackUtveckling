@@ -11,7 +11,9 @@ const fastify = Fastify({                      //skapar en instans av fastify oc
 })
 
 fastify.register(fastifyCors, {                    //Registrerar CORS så att alla frontend kan prata med APIt
-    origin: '*'
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
 })
 
 fastify.register(fastifyMongodb, {                //registerar MongoDB pluginet och hämtar urlen med lösenordet från .env
